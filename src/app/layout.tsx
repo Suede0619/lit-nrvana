@@ -36,19 +36,11 @@ export default function RootLayout({
               <img
                 src={img("/images/logo-gold.png")}
                 alt="Nrvana Literature"
-                width={40}
-                height={40}
-                className="mx-auto mb-3"
+                width={320}
+                height={320}
+                className="mx-auto"
               />
             </Link>
-            <Link href="/">
-              <h1 className="text-2xl font-light tracking-widest text-gold uppercase">
-                Nrvana Literature
-              </h1>
-            </Link>
-            <p className="text-muted text-sm italic mt-1" style={{ fontFamily: "var(--font-lora)" }}>
-              Poetry and stories for our place and time
-            </p>
           </div>
         </header>
 
