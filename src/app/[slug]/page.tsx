@@ -2,6 +2,7 @@ import Link from "next/link";
 import { posts } from "@/data/posts";
 import { notFound } from "next/navigation";
 import { img } from "@/lib/prefix";
+import { slugify } from "@/lib/categories";
 
 export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
@@ -74,7 +75,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         {post.categories.map((cat, i) => (
           <span key={cat}>
             {i > 0 && ", "}
-            <span className="text-gold">{cat}</span>
+            <Link href={`/category/${slugify(cat)}`} className="text-gold hover:text-gold-light">{cat}</Link>
           </span>
         ))}
       </div>

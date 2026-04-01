@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { posts } from "@/data/posts";
 import { img } from "@/lib/prefix";
+import { getAllCategories, slugify } from "@/lib/categories";
 
 export default function Home() {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
                 {post.categories.map((cat, i) => (
                   <span key={cat}>
                     {i > 0 && ", "}
-                    <span className="text-gold">{cat}</span>
+                    <Link href={`/category/${slugify(cat)}`} className="text-gold hover:text-gold-light">{cat}</Link>
                   </span>
                 ))}
               </div>
@@ -78,12 +79,12 @@ export default function Home() {
               Categories
             </h3>
             <ul className="space-y-1 text-sm text-muted">
-              {[
-                "Artificial Intelligence", "Audio", "Cock & Bull", "Lists",
-                "Poetry", "Smash the Predator Class", "Stories", "Tales",
-                "The Old Days", "Yarns",
-              ].map((cat) => (
-                <li key={cat}>{cat}</li>
+              {getAllCategories().map((cat) => (
+                <li key={cat}>
+                  <Link href={`/category/${slugify(cat)}`} className="hover:text-gold transition-colors">
+                    {cat}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
