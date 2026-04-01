@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { posts } from "@/data/posts";
+import { img } from "@/lib/prefix";
 
 export default function Home() {
   return (
@@ -12,12 +12,10 @@ export default function Home() {
             <article key={post.slug} className="border-b border-border pb-10">
               <Link href={`/${post.slug}`}>
                 <div className="relative w-full aspect-[21/9] mb-4 overflow-hidden rounded">
-                  <Image
-                    src={post.image}
+                  <img
+                    src={img(post.image)}
                     alt={post.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 600px"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </Link>
@@ -62,19 +60,16 @@ export default function Home() {
             <p className="text-sm text-muted italic mb-4">
               Friends, these are my words — Rants, fables, lies and ample truths reside here
             </p>
-            <Image
-              src="/images/desert-dreaming.jpg"
+            <img
+              src={img("/images/desert-dreaming.jpg")}
               alt="Desert dreaming"
-              width={300}
-              height={200}
-              className="rounded mb-4 mx-auto"
+              className="rounded mb-4 mx-auto max-w-full"
             />
-            <Image
-              src="/images/signature.png"
+            <img
+              src={img("/images/signature.png")}
               alt="Signature"
-              width={150}
-              height={40}
               className="mx-auto"
+              width={150}
             />
           </div>
 

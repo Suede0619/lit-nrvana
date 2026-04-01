@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Lato, Lora } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
 import Link from "next/link";
+import { img } from "@/lib/prefix";
 
 const lato = Lato({
   variable: "--font-lato",
@@ -33,8 +33,8 @@ export default function RootLayout({
         <header className="border-b border-border">
           <div className="max-w-4xl mx-auto px-4 py-8 text-center">
             <Link href="/">
-              <Image
-                src="/images/logo-gold.png"
+              <img
+                src={img("/images/logo-gold.png")}
                 alt="Nrvana Literature"
                 width={40}
                 height={40}
