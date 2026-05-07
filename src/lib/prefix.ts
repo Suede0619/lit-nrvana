@@ -1,4 +1,4 @@
-export const BASE = "/lit-nrvana";
+export const BASE = "";
 export function img(path: string) {
   return `${BASE}${path}`;
 }
